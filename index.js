@@ -6,11 +6,11 @@ import dotenv from 'dotenv';
 
 
 const app = express();
-
 dotenv.config();
 import postRoutes from './routes/posts.js';
 import userRoutes from './routes/user.js';
 app.use(cors());//(is basically used for ports)
+app.use(express.static("public"))
 
 app.use(bodyParser.json({limit: "30mb" , extended: true}));//if our image size would exceed the limit
 app.use(bodyParser.urlencoded({limit: "30mb" , extended: true}));//body parser (will make the post request to an object)
