@@ -29,8 +29,13 @@ app.get('/',(req,res)=>{
 
 const PORT = process.env.PORT || 8000;
 
-mongoose.connect(process.env.CONNECTION_URL , {useNewUrlParser: true})
-    .then(() => app.listen(PORT, () => console.log(`Server running on port : ${PORT}`)))
+mongoose.connect(process.env.CONNECTION_URL||  "mongodb+srv://MemoriesApp:MemoriesApp123@cluster0.d7wjqhn.mongodb.net/?retryWrites=true&w=majority" , {useNewUrlParser: true})
+    .then(() => 
+    {
+        console.log("connected");
+        app.listen(PORT, () => console.log(`Server running on port : ${PORT}`))
+    }
+    )
     .catch((error) => console.error(error.message));
 
 // mongoose.connect(CONNECTION_URL).then(()=>{console.log('Server running on port : ${PORT}')})
