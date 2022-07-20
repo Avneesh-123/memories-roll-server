@@ -29,7 +29,7 @@ app.get('/',(req,res)=>{
 
 const PORT = process.env || 8000;
 
-mongoose.connect(process.env.CONNECTION_URL||  "mongodb+srv://MemoriesApp:MemoriesApp123@cluster0.d7wjqhn.mongodb.net/?retryWrites=true&w=majority" , {useNewUrlParser: true})
+mongoose.connect(process.env||  "mongodb+srv://MemoriesApp:MemoriesApp123@cluster0.d7wjqhn.mongodb.net/?retryWrites=true&w=majority" , {useNewUrlParser: true})
     .then(() => 
     {
         console.log("connected");
